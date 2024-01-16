@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico desde Python</title>
+    <!-- Incluye la biblioteca de gráficos Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Contenedor para el gráfico -->
+    <div id="grafico"></div>
+
+    <script>
+        // Este script hace una solicitud a un servidor Python para obtener y mostrar el gráfico
+        fetch('obtener_grafico.py')
+            .then(response => response.json())
+            .then(data => {
+                // Utiliza Plotly para dibujar el gráfico
+                Plotly.newPlot('grafico', data);
+            });
+    </script>
+</body>
+</html>
