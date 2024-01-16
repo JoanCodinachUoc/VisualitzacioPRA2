@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola, Mundo</title>
+    <title>Gráfico desde Python</title>
+    <!-- Incluye la biblioteca de gráficos Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>Hola, Mundo</h1>
-    <p>¡Bienvenido a mi página web!</p>
+    <!-- Contenedor para el gráfico -->
+    <div id="grafico"></div>
+
+    <script>
+        // Este script hace una solicitud a un servidor Python para obtener y mostrar el gráfico
+        fetch('obtener_grafico.py')
+            .then(response => response.json())
+            .then(data => {
+                // Utiliza Plotly para dibujar el gráfico
+                Plotly.newPlot('grafico', data);
+            });
+    </script>
 </body>
+</html>
